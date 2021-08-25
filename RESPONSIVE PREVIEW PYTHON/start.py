@@ -5,7 +5,25 @@ from PIL import Image
 
 # Configurações 
 options = webdriver.ChromeOptions()
-options.headless = True # não mostra navegador
+def alt():
+    resp = input('Deseja fazer alguma alteração? [y] $\n')
+    link = ''
+    
+    with open('path.txt', 'r') as fs:
+        for f in fs:
+            link += f
+
+    if resp == 'y':
+        options.headless = False # mostra navegador
+    else:
+        options.headless = True # não mostra navegador
+    
+    print('Processando...')
+
+    return [link, resp]
+
+link = alt()
+# options.headless = True # não mostra navegador
 path = os.getcwd()+"\chromedriver_win.exe"
 path = path.replace("/", "\\")
 options.add_experimental_option("detach", True)
@@ -14,6 +32,12 @@ options.add_argument("--window-position=0, 0");
 browser = webdriver.Chrome(executable_path=path, options=options)
 
 images = []
+
+if (link[1] == 'y'):
+    browser.get(link[0])
+    input('Continuar? [Enter]')
+else:
+    browser.get(link[0])
 
 def create_pdf(url):
     image1 = Image.open(url)
@@ -32,9 +56,7 @@ def define_size(size):
 
     return url
 
-def take_screenshot(html):
-
-    browser.get(html)
+def take_screenshot():
 
     time.sleep(3)
 
@@ -65,9 +87,6 @@ def take_screenshot(html):
     print('processo terminado.')
 
 
-with open('path.txt', 'r') as fs:
-    for f in fs:
-        f = f.strip()
-        take_screenshot(f)
+take_screenshot()
 
 browser.quit()
