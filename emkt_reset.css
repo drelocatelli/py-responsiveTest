@@ -1,0 +1,44 @@
+    *{font-family:'Arial',sans-serif; box-sizing:border-box;}
+    body{
+        background-color:#aaa;
+        padding:0;
+        margin: 0;
+        border:0;
+        line-height: 0;
+        width: 100% !important;
+        min-width: 100%;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    h1,h2,h3,p,span{ 
+        line-height: 1.3em; 
+        margin:0;
+        padding:0;
+    }
+
+    .container{
+        border:0;
+        table-layout:fixed;
+        background:#fff;
+        width:36.25rem;
+        margin-bottom: 10vh;
+    }
+    table, tr, td{
+        padding:0;
+        border-spacing: 0;
+        border-collapse: collapse;
+    }
+
+    @media only screen and (max-width: 380px) {
+        .container{
+            width:25.25rem;
+        }
+
+        .container img{
+            max-width: 11rem;
+        }
+    }
