@@ -32,17 +32,14 @@ options.add_argument("--window-position=0, 0");
 browser = webdriver.Chrome(executable_path=path, options=options)
 
 images = []
+imEmkt = []
+
 
 if (link[1] == 'y'):
     browser.get(link[0])
     input('Continuar? [Enter]')
 else:
     browser.get(link[0])
-
-def create_pdf(url):
-    image1 = Image.open(url)
-    im1 = image1.convert('RGB')
-    im1.save(r'./screenshots/result.pdf')
 
 def define_size(size):
     browser.set_window_size(size, 1080)
@@ -51,8 +48,12 @@ def define_size(size):
     height = str(height)
     size = str(size)
     url = './screenshots/'+size+'x'+height+'.png'
-
     images.append(url)
+
+    if(int(size) < 800):
+        imEmkt.append(url)
+    else:
+        pass
 
     return url
 
@@ -69,7 +70,7 @@ def take_screenshot():
     url = define_size(768)
     browser.save_screenshot(url)
 
-    url = define_size(414)
+    url = define_size(600)
     browser.save_screenshot(url)
 
     url = define_size(360)
@@ -78,10 +79,22 @@ def take_screenshot():
     im = []
     
     for i in range(0, len(images)):
-        images[i] = Image.open(images[i])
-        im.append(images[i].convert('RGB'))
-        
-    im[1].save('./screenshots/result.pdf', save_all=True, append_images=im)
+        im.append(images[i])
+        im[i] = Image.open(images[i])
+        im[i] = im[i].convert('RGB')
+        print('Gerando pdf de visualização web, processo: '+ str(i+1))
+    im[1].save('./screenshots/web.pdf', save_all=True, append_images=im)
+
+    # emkt            
+
+    for i in range(0, len(imEmkt)):
+        print(i)
+        imEmkt[i] = Image.open(imEmkt[i])
+        imEmkt[i] = imEmkt[i].convert('RGB')     
+
+        print('Gerando pdf de visualização email marketing, processo: '+ str(i+1))
+    
+    imEmkt[1].save('./screenshots/emkt.pdf', save_all=True, append_images=imEmkt)
     
 
     print('processo terminado.')
