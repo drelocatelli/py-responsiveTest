@@ -44,10 +44,6 @@
         }
        
         .container{
-            width:25.25rem;
-        }
-
-        .container img{
-            max-width: 11rem;
+            zoom:80%;
         }
     }
