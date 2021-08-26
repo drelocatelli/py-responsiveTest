@@ -41,11 +41,6 @@
    }
 
     @media only screen and (max-width: 380px) {
-       
-       .header img{
-            max-width:18rem;
-        }
-       
         .container{
             zoom:80%;
         }
