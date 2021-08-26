@@ -37,7 +37,7 @@
     }
 
    .header img{
-      max-width:15rem;
+      width:15rem;
    }
 
     @media only screen and (max-width: 380px) {
