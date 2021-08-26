@@ -33,7 +33,16 @@
         border-collapse: collapse;
     }
 
+         .header img{
+            max-width:15rem;
+        }
+
     @media only screen and (max-width: 380px) {
+       
+       .header img{
+            max-width:18rem;
+        }
+       
         .container{
             width:25.25rem;
         }
