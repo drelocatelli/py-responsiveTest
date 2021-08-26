@@ -52,10 +52,6 @@
         text-decoration: none; 
     }
 
-   .header img{
-      width:15rem;
-   }
-
     @media only screen and (max-width: 380px) {
         .container{
             zoom:80%;
