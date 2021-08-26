@@ -50,7 +50,7 @@ def define_size(size):
     url = './screenshots/'+size+'x'+height+'.png'
     images.append(url)
 
-    if(int(size) < 800):
+    if(int(size) < 1400):
         imEmkt.append(url)
     else:
         pass
@@ -80,21 +80,18 @@ def take_screenshot():
     
     for i in range(0, len(images)):
         im.append(images[i])
-        im[i] = Image.open(images[i])
-        im[i] = im[i].convert('RGB')
+        im[i] = Image.open(images[i]).convert('RGB')
         print('Gerando pdf de visualização web, processo: '+ str(i+1))
-    im[1].save('./screenshots/web.pdf', save_all=True, append_images=im)
+    im[0].save('./screenshots/web.pdf', save_all=True, append_images=im)
 
     # emkt            
 
     for i in range(0, len(imEmkt)):
-        print(i)
-        imEmkt[i] = Image.open(imEmkt[i])
-        imEmkt[i] = imEmkt[i].convert('RGB')     
+        imEmkt[i] = Image.open(imEmkt[i]).convert('RGB')   
 
         print('Gerando pdf de visualização email marketing, processo: '+ str(i+1))
     
-    imEmkt[1].save('./screenshots/emkt.pdf', save_all=True, append_images=imEmkt)
+    imEmkt[0].save('./screenshots/emkt.pdf', save_all=True, append_images=imEmkt)
     
 
     print('processo terminado.')
