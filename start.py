@@ -21,7 +21,6 @@ def alt():
     print('Processando...')
 
     return [link, resp]
-
 link = alt()
 # options.headless = True # não mostra navegador
 path = os.getcwd()+"\chromedriver_win.exe"
