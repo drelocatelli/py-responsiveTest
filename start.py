@@ -23,12 +23,12 @@ def alt():
     return [link, resp]
 link = alt()
 # options.headless = True # não mostra navegador
-path = os.getcwd()+"\chromedriver_win.exe"
-path = path.replace("/", "\\")
+path = os.getcwd()+"/chromedriver_V93"
 options.add_experimental_option("detach", True)
 # options.add_argument('--start-maximized')
 options.add_argument("--window-position=0, 0");
 browser = webdriver.Chrome(executable_path=path, options=options)
+
 
 images = []
 imEmkt = []
