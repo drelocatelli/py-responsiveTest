@@ -95,7 +95,6 @@ def take_screenshot():
 
     print('processo terminado.')
 
-
 take_screenshot()
 
 browser.quit()
